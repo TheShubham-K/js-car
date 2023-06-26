@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Styles for the container */
+    body {
+      display: flex;
+      background-color: black;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .car {
+      width: 200px;
+      height: 100px;
+      background-color: blue;
+      position: absolute;
+      top: calc(30% - 20px);
+      margin-left: 10px;
+      border-radius: 10px;
+      transform: translateX(10%);
+    }
+
+    /* Styles for the car roof */
+    .car::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 20px;
+      background-color: black;
+      border-radius: 10px;
+    }
+
+    /* Styles for the windshield */
+    .car::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 50px;
+      background-color: lightblue;
+      border-radius: 10px;
+      z-index: -1;
+    }
+
+    .headlight {
+      width: 30px;
+      height: 30px;
+      background-color: yellow;
+      position: absolute;
+      top: 40px;
+      right: -15px;
+      border-radius: 50%;
+    }
+
+    .on {
+      /* Define the styles for the headlight when turned on */
+      /* Example styles: */
+      background-color: white;
+      box-shadow: 0 10px 100px 50px yellow;
+    }
+
+    .light-on .headlight {
+      /* Define the styles for the track when lights are turned on */
+      /* Example styles: */
+      background-color: gray;
+    }
+
+
+
+    /* Styles for the car wheels */
+    .wheel {
+      width: 40px;
+      height: 40px;
+      background-color: #444;
+      position: absolute;
+      bottom: 0;
+      border-radius: 50%;
+      transform: translateY(50%);
+    }
+
+    .track-container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background-color: #222;
+      overflow: hidden;
+    }
+
+    .track {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: #fff;
+      transform: translateY(-50%);
+    }
+
+    .street-lamp {
+        position: absolute;
+        bottom: 1px; /* Adjust the distance from the bottom as needed */
+        width: 10px;
+        height: 8em;
+        margin-left: 20px;
+        background-color: gray;
+        border-radius: 5px;
+        transform: translateX(-50%);
+      }
+
+      .street-lamp:nth-child(1) {
+        left: 15%;
+      }
+
+      .street-lamp:nth-child(2) {
+        left: 35%;
+      }
+
+      .street-lamp:nth-child(3) {
+        left: 25%;
+      }
+
+      .street-lamp:nth-child(4) {
+        left: 50%;
+      }
+
+      .street-lamp:nth-child(5) {
+        left: 75%;
+      }
+
+      .street-lamp:nth-child(6) {
+        left: 97%;
+      }
+
+      .lamp-bulb {
+        width: 20px;
+        height: 20px;
+        background-color: gray;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .lamp-on .lamp-bulb {
+        // display: block;
+        background-color: yellow;
+        box-shadow: 0 0 50px 25px yellow;
+      }
+
+    .wheel.left {
+      left: 20px;
+    }
+
+    .wheel.right {
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="track-container">
+    <div class="track"></div>
+    <div class="car">
+        <div class="headlights">
+            <div class="headlight"></div>
+        </div>
+        <div class="wheel left"></div>
+        <div class="wheel right"></div>
+    </div>
+    <div class="street-lamp">
+        <div class="lamp-bulb"></div>
+    </div>
+    <div class="street-lamp">
+        <div class="lamp-bulb"></div>
+    </div>
+    <div class="street-lamp">
+        <div class="lamp-bulb"></div>
+    </div>
+    <div class="street-lamp">
+        <div class="lamp-bulb"></div>
+    </div>
+    <div class="street-lamp">
+        <div class="lamp-bulb"></div>
+    </div>
+    <div class="street-lamp">
+        <div class="lamp-bulb"></div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript" src="./car-headlight.js"></script>
+<script type="text/javascript" src="run.js"></script>
+<script type="text/javascript" src="lamps.js"></script>
+</html>
