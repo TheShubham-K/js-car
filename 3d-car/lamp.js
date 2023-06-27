@@ -27,6 +27,7 @@
         streetLamps.forEach(lamp => {
           lamp.classList.toggle('lamp-on');
         });
+        document.body.classList.toggle('overlay-active');
       }
     }
 
