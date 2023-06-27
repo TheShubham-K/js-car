@@ -1,6 +1,5 @@
 // Get all street lamps
     const streetLamps = document.querySelectorAll('.street-lamp');
-    const myBody = document.querySelectorAll('.container');
 
     // Function to turn on the lamps
     function turnOnLamps() {

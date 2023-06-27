@@ -1,12 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style></style>
     <title>3d-car</title>
+    <style id="animationWheel">
+        /*  wheel rotate*/
+        @keyframes wheel {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+    <style id = "animationWipe">
+        /*  wipe rotate*/
+        @keyframes wipe {
+            from {
+                transform: rotateZ(70deg);
+            }
+            to {
+                transform: rotateZ(-70deg);
+            }
+        }
+    </style>
+    <style id = "animationRotate">
+    /* car comes into view */
+    @keyframes rotate {
+        0% {
+            transform: rotateY(0deg);
+        }
+        100% {
+            transform: rotateY(-360deg);
+        }
+    }
+    </style>
+    <style>
+    /*animation of the car*/
+    .animate {
+        animation: carAnimation 1s linear infinite;
+    }
+
+    @keyframes carAnimation {
+        0% {
+          /* Define the starting position of the car */
+          transform: translateX(0);
+        }
+        100% {
+          /* Define the ending position of the car */
+          transform: translateX(700px);
+        }
+    }
+
+    .scene,
+    .shape,
+    .face,
+    .face-wrapper,
+    .cr {
+        position: absolute;
+        transform-style: preserve-3d;
+    }
+    .scene {
+        width: 80em;
+        height: 80em;
+        top: 70%;
+        left: 70%;
+        margin: -40em 0 0 -40em;
+        transform-origin: 400px 0px 0px;
+        animation: rotate 20s linear infinite;
+    }
+
+    .wheel {
+        animation: wheel 5s linear infinite;
+        /* animation-fill-mode: forwards; */
+        transform-style: preserve-3d;
+        width: 63px;
+        height: 30px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .hand {
+        width: 2px;
+        height: 60px;
+        background: #520778;
+        position: absolute;
+        bottom: 0px;
+        right: 45%;
+        transform: rotateZ(-30deg);
+        transform-origin: center bottom;
+        border-radius: 30%;
+        animation: wipe 0.5s ease-in-out infinite alternate;
+    }
+    </style>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="lamp.css">
 </head>
-<body class="container">
+<body>
 <div id="tridiv">
     <!-- Circular Track -->
     <div class="street-lamp">
@@ -370,6 +464,5 @@
 </div>
 </body>
 <script type="text/javascript" src="runCar.js"></script>
-<script type="text/javascript" src="./carHeadlight.js"></script>
 <script type="text/javascript" src="./lamp.js"></script>
 </html>
