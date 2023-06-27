@@ -1,0 +1,805 @@
+body {
+  font-family: sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    0deg,
+    rgba(65, 63, 93, 1) 0%,
+    rgba(80, 81, 116, 1) 5%,
+    rgba(81, 82, 118, 1) 16%,
+    rgba(116, 152, 177, 1) 39%,
+    rgba(178, 236, 247, 1) 39%,
+    rgba(218, 223, 186, 1) 40%,
+    rgba(41, 41, 66, 1) 100%
+  );
+}
+
+#tridiv {
+  perspective: 900px;
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  overflow: hidden;
+  height: 90%;
+  background: transparent;
+  font-size: 100%;
+}
+
+/*animation of the car*/
+.animate {
+    animation: carAnimation 1s linear infinite;
+}
+
+@keyframes carAnimation {
+    0% {
+      /* Define the starting position of the car */
+      transform: translateZ(0);
+    }
+    100% {
+      /* Define the ending position of the car */
+      transform: translateZ(700px);
+    }
+}
+
+.scene,
+.shape,
+.face,
+.face-wrapper,
+.cr {
+	position: absolute;
+	transform-style: preserve-3d;
+}
+.scene {
+	width: 80em;
+	height: 80em;
+	top: 70%;
+	left: 70%;
+	margin: -40em 0 0 -40em;
+	transform-origin: 40px 0px 0px;
+	animation: linear 20s linear infinite;
+}
+.shape {
+	top: 50%;
+	left: 50%;
+	width: 0;
+	height: 0;
+	transform-origin: 50%;
+}
+.face,
+.face-wrapper {
+	overflow: hidden;
+	transform-origin: 0 0;
+	backface-visibility: hidden;
+}
+.face {
+	background-size: 100% 100% !important;
+	background-position: center;
+}
+.face-wrapper .face {
+	left: 100%;
+	width: 100%;
+	height: 100%;
+}
+.photon-shader {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(102, 0, 153);
+}
+
+.side {
+	left: 50%;
+}
+.cr,
+.cr .side {
+	height: 100%;
+}
+[class*="cuboid"] .ft,
+[class*="cuboid"] .bk {
+	width: 100%;
+	height: 100%;
+}
+[class*="cuboid"] .bk {
+	left: 100%;
+}
+[class*="cuboid"] .rt {
+	transform: rotateY(-90deg) translateX(-50%);
+}
+[class*="cuboid"] .lt {
+	transform: rotateY(90deg) translateX(-50%);
+}
+[class*="cuboid"] .tp {
+	transform: rotateX(90deg) translateY(-50%);
+}
+[class*="cuboid"] .bm {
+	transform: rotateX(-90deg) translateY(-50%);
+}
+[class*="cuboid"] .lt {
+	left: 100%;
+}
+[class*="cuboid"] .bm {
+	top: 100%;
+}
+[class*="cylinder"] .tp {
+	transform: rotateX(90deg) translateY(-50%);
+}
+[class*="cylinder"] .bm {
+	transform: rotateX(-90deg) translateY(-50%);
+}
+[class*="cylinder"] .tp,
+[class*="cylinder"] .bm,
+[class*="cylinder"] .tp .photon-shader,
+[class*="cylinder"] .bm .photon-shader {
+	border-radius: 50%;
+}
+[class*="cylinder"] .bm {
+	top: 100%;
+}
+/* .cub-1 styles */
+.cub-1 {
+	transform: translate3D(4.75em, -2.125em, 6.4375em) rotateX(-90deg)
+		rotateY(0deg) rotateZ(0deg);
+	opacity: 1;
+	width: 7em;
+	height: 12.5em;
+	margin: -6.25em 0 0 -3.5em;
+}
+.cub-1 .ft {
+	transform: translateZ(2.125em);
+}
+.cub-1 .bk {
+	transform: translateZ(-2.125em) rotateY(180deg);
+}
+.cub-1 .rt,
+.cub-1 .lt {
+	width: 4.25em;
+	height: 12.5em;
+}
+.cub-1 .tp,
+.cub-1 .bm {
+	width: 7em;
+	height: 4.25em;
+}
+.cub-1 .face {
+	background-color: #fff;
+}
+.cub-1 .ft {
+	width: 7em;
+	margin-left: 0em;
+}
+.cub-1 .bk {
+	width: 7em;
+	margin-left: 0em;
+}
+.cub-1 .rt,
+.cub-1 .lt {
+	width: 4.25em;
+}
+.cub-1 .tp,
+.cub-1 .bm,
+.cub-1 .tp .photon-shader,
+.cub-1 .bm .photon-shader {
+	border-radius: 0em;
+}
+.cub-1 .cr {
+	width: 0em;
+	left: 0em;
+}
+.cub-1 .cr-0 {
+	transform: translate3D(7em, 0, 2.125em);
+}
+.cub-1 .cr-1 {
+	transform: translate3D(7em, 0, -2.125em);
+}
+.cub-1 .cr-2 {
+	transform: translate3D(0, 0, -2.125em);
+}
+.cub-1 .cr-3 {
+	transform: translate3D(0, 0, 2.125em);
+}
+.cub-1 .cr-0 .s0 {
+	transform: rotateY(15deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-1 .cr-0 .s1 {
+	transform: rotateY(45deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-1 .cr-0 .s2 {
+	transform: rotateY(75deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-1 .cr-1 .s0 {
+	transform: rotateY(105deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-1 .cr-1 .s1 {
+	transform: rotateY(135deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-1 .cr-1 .s2 {
+	transform: rotateY(165deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-1 .cr-2 .s0 {
+	transform: rotateY(195deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-1 .cr-2 .s1 {
+	transform: rotateY(225deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-1 .cr-2 .s2 {
+	transform: rotateY(255deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-1 .cr-3 .s0 {
+	transform: rotateY(285deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-1 .cr-3 .s1 {
+	transform: rotateY(315deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-1 .cr-3 .s2 {
+	transform: rotateY(345deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-1 .side {
+	width: 0.025em;
+}
+/* .cub-2 styles */
+.cub-2 {
+	transform: translate3D(4.75em, -6.1875em, 5.375em) rotateX(0deg) rotateY(0deg)
+		rotateZ(0deg);
+	opacity: 1;
+	width: 7em;
+	height: 5em;
+	margin: -2.5em 0 0 -3.5em;
+}
+.cub-2 .ft {
+	transform: translateZ(5.1875em);
+}
+.cub-2 .bk {
+	transform: translateZ(-5.1875em) rotateY(180deg);
+}
+.cub-2 .rt,
+.cub-2 .lt {
+	width: 10.375em;
+	height: 5em;
+}
+.cub-2 .tp,
+.cub-2 .bm {
+	width: 7em;
+	height: 10.375em;
+}
+.cub-2 .face {
+	background-color: #fff;
+}
+.cub-2 .ft {
+	width: 7em;
+	margin-left: 0em;
+}
+.cub-2 .bk {
+	width: 7em;
+	margin-left: 0em;
+}
+.cub-2 .rt,
+.cub-2 .lt {
+	width: 10.375em;
+}
+.cub-2 .tp,
+.cub-2 .bm,
+.cub-2 .tp .photon-shader,
+.cub-2 .bm .photon-shader {
+	border-radius: 0em;
+}
+.cub-2 .cr {
+	width: 0em;
+	left: 0em;
+}
+.cub-2 .cr-0 {
+	transform: translate3D(7em, 0, 5.1875em);
+}
+.cub-2 .cr-1 {
+	transform: translate3D(7em, 0, -5.1875em);
+}
+.cub-2 .cr-2 {
+	transform: translate3D(0, 0, -5.1875em);
+}
+.cub-2 .cr-3 {
+	transform: translate3D(0, 0, 5.1875em);
+}
+.cub-2 .cr-0 .s0 {
+	transform: rotateY(15deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-2 .cr-0 .s1 {
+	transform: rotateY(45deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-2 .cr-0 .s2 {
+	transform: rotateY(75deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-2 .cr-1 .s0 {
+	transform: rotateY(105deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-2 .cr-1 .s1 {
+	transform: rotateY(135deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-2 .cr-1 .s2 {
+	transform: rotateY(165deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-2 .cr-2 .s0 {
+	transform: rotateY(195deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-2 .cr-2 .s1 {
+	transform: rotateY(225deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-2 .cr-2 .s2 {
+	transform: rotateY(255deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-2 .cr-3 .s0 {
+	transform: rotateY(285deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-2 .cr-3 .s1 {
+	transform: rotateY(315deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-2 .cr-3 .s2 {
+	transform: rotateY(345deg) translate3D(-50%, 0, -0.025em);
+}
+.cub-2 .side {
+	width: 0.025em;
+}
+/* .cyl-1 styles */
+.cyl-1 {
+	transform: translate3D(1.25em, 0em, 2.4375em) rotateX(0deg) rotateY(0deg)
+		rotateZ(90deg);
+	opacity: 1;
+	width: 3.875em;
+	height: 2em;
+	margin: -1em 0 0 -1.9375em;
+}
+.cyl-1 .tp,
+.cyl-1 .bm {
+	width: 3.875em;
+	height: 3.875em;
+}
+.cyl-1 .side {
+	width: 0.909443463261831em;
+	height: 2em;
+}
+.cyl-1 .s0 {
+	transform: rotateY(12.857142857142858deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s1 {
+	transform: rotateY(38.57142857142857deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s2 {
+	transform: rotateY(64.28571428571429deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s3 {
+	transform: rotateY(90deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s4 {
+	transform: rotateY(115.71428571428572deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s5 {
+	transform: rotateY(141.42857142857144deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s6 {
+	transform: rotateY(167.14285714285714deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s7 {
+	transform: rotateY(192.85714285714286deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s8 {
+	transform: rotateY(218.57142857142858deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s9 {
+	transform: rotateY(244.2857142857143deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s10 {
+	transform: rotateY(270deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s11 {
+	transform: rotateY(295.7142857142857deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s12 {
+	transform: rotateY(321.4285714285714deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .s13 {
+	transform: rotateY(347.1428571428571deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-1 .face,
+.cyl-1 .side {
+	background-color: #fff;
+}
+/* .cyl-2 styles */
+.cyl-2 {
+	transform: translate3D(1.25em, 0.0625em, 9.75em) rotateX(0deg) rotateY(0deg)
+		rotateZ(90deg);
+	opacity: 1;
+	width: 3.875em;
+	height: 2em;
+	margin: -1em 0 0 -1.9375em;
+}
+.cyl-2 .tp,
+.cyl-2 .bm {
+	width: 3.875em;
+	height: 3.875em;
+}
+.cyl-2 .side {
+	width: 0.909443463261831em;
+	height: 2em;
+}
+.cyl-2 .s0 {
+	transform: rotateY(12.857142857142858deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s1 {
+	transform: rotateY(38.57142857142857deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s2 {
+	transform: rotateY(64.28571428571429deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s3 {
+	transform: rotateY(90deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s4 {
+	transform: rotateY(115.71428571428572deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s5 {
+	transform: rotateY(141.42857142857144deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s6 {
+	transform: rotateY(167.14285714285714deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s7 {
+	transform: rotateY(192.85714285714286deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s8 {
+	transform: rotateY(218.57142857142858deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s9 {
+	transform: rotateY(244.2857142857143deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s10 {
+	transform: rotateY(270deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s11 {
+	transform: rotateY(295.7142857142857deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s12 {
+	transform: rotateY(321.4285714285714deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .s13 {
+	transform: rotateY(347.1428571428571deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-2 .face,
+.cyl-2 .side {
+	background-color: #ffffff;
+}
+/* .cyl-3 styles */
+.cyl-3 {
+	transform: translate3D(8.1875em, 0em, 2.4375em) rotateX(0deg) rotateY(0deg)
+		rotateZ(90deg);
+	opacity: 1;
+	width: 3.875em;
+	height: 2em;
+	margin: -1em 0 0 -1.9375em;
+}
+.cyl-3 .tp,
+.cyl-3 .bm {
+	width: 3.875em;
+	height: 3.875em;
+}
+.cyl-3 .side {
+	width: 0.909443463261831em;
+	height: 2em;
+}
+.cyl-3 .s0 {
+	transform: rotateY(12.857142857142858deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s1 {
+	transform: rotateY(38.57142857142857deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s2 {
+	transform: rotateY(64.28571428571429deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s3 {
+	transform: rotateY(90deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s4 {
+	transform: rotateY(115.71428571428572deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s5 {
+	transform: rotateY(141.42857142857144deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s6 {
+	transform: rotateY(167.14285714285714deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s7 {
+	transform: rotateY(192.85714285714286deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s8 {
+	transform: rotateY(218.57142857142858deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s9 {
+	transform: rotateY(244.2857142857143deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s10 {
+	transform: rotateY(270deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s11 {
+	transform: rotateY(295.7142857142857deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s12 {
+	transform: rotateY(321.4285714285714deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .s13 {
+	transform: rotateY(347.1428571428571deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-3 .face,
+.cyl-3 .side {
+	background-color: #ffffff;
+}
+/* .cyl-4 styles */
+.cyl-4 {
+	transform: translate3D(8.1875em, 0.0625em, 9.75em) rotateX(0deg) rotateY(0deg)
+		rotateZ(90deg);
+	opacity: 1;
+	width: 3.875em;
+	height: 2em;
+	margin: -1em 0 0 -1.9375em;
+}
+.cyl-4 .tp,
+.cyl-4 .bm {
+	width: 3.875em;
+	height: 3.875em;
+}
+.cyl-4 .side {
+	width: 0.909443463261831em;
+	height: 2em;
+}
+.cyl-4 .s0 {
+	transform: rotateY(12.857142857142858deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s1 {
+	transform: rotateY(38.57142857142857deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s2 {
+	transform: rotateY(64.28571428571429deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s3 {
+	transform: rotateY(90deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s4 {
+	transform: rotateY(115.71428571428572deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s5 {
+	transform: rotateY(141.42857142857144deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s6 {
+	transform: rotateY(167.14285714285714deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s7 {
+	transform: rotateY(192.85714285714286deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s8 {
+	transform: rotateY(218.57142857142858deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s9 {
+	transform: rotateY(244.2857142857143deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s10 {
+	transform: rotateY(270deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s11 {
+	transform: rotateY(295.7142857142857deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s12 {
+	transform: rotateY(321.4285714285714deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .s13 {
+	transform: rotateY(347.1428571428571deg) translate3D(-50%, 0, 1.9125em);
+}
+.cyl-4 .face,
+.cyl-4 .side {
+	background-color: #ffffff;
+}
+/* ======================= my css==================== */
+[class*="cylinder"] .tp .photon-shader {
+	background: radial-gradient(
+		ellipse at center,
+		rgba(196, 196, 196, 1) 0%,
+		rgb(56, 53, 89) 0%,
+		rgb(56, 53, 89) 11%,
+		rgb(56, 53, 89) 23%,
+		rgba(255, 255, 255, 1) 23%,
+		rgba(255, 255, 255, 1) 39%,
+		rgba(255, 255, 255, 1) 44%,
+		rgb(56, 53, 89) 44%,
+		rgb(56, 53, 89) 100%
+	);
+}
+
+[class*="cylinder"] .bm .photon-shader {
+	background: radial-gradient(
+		ellipse at center,
+		rgba(196, 196, 196, 1) 0%,
+		rgb(56, 53, 89) 0%,
+		rgb(56, 53, 89) 11%,
+		rgb(56, 53, 89) 23%,
+		rgba(255, 255, 255, 1) 23%,
+		rgba(255, 255, 255, 1) 39%,
+		rgba(255, 255, 255, 1) 44%,
+		rgb(56, 53, 89) 44%,
+		rgb(56, 53, 89) 100%
+	);
+}
+
+/* glasses */
+.cuboid-2.cub-2 .ft .photon-shader::after {
+	content: "";
+	display: block;
+	width: 90%;
+	height: 100%;
+	background-color: rgb(255 255 255 / 57%);
+	margin: 10px auto;
+}
+
+.cuboid-2.cub-2 .ft .photon-shader::after {
+	content: "";
+	display: block;
+	width: 90%;
+	height: 100%;
+	background-color: rgb(255 255 255 / 57%);
+	margin: 5px;
+}
+
+.cuboid-2.cub-2 .bk .photon-shader::after {
+	content: "";
+	display: block;
+	width: 80%;
+	height: 60%;
+	background-color: rgb(255 255 255 / 57%);
+	margin: 5px auto;
+	margin-top: 10px;
+}
+
+.cuboid-2.cub-2 .lt .photon-shader::after {
+	content: "";
+	display: block;
+	width: 40%;
+	height: 60%;
+	background-color: rgb(255 255 255 / 57%);
+	margin: 10px;
+}
+
+.cuboid-2.cub-2 .rt .photon-shader::before {
+	content: "";
+	display: block;
+	width: 40%;
+	height: 60%;
+	background-color: rgb(255 255 255 / 57%);
+	margin: 10px;
+	float: right;
+}
+
+.cuboid-2.cub-2 .rt .photon-shader::after {
+	content: "";
+	display: block;
+	width: 40%;
+	height: 60%;
+	background-color: rgb(255 255 255 / 57%);
+	margin: 10px;
+}
+
+.cuboid-2.cub-2 .lt .photon-shader::before {
+	content: "";
+	display: block;
+	width: 40%;
+	height: 60%;
+	background-color: rgb(255 255 255 / 57%);
+	margin: 10px;
+	float: right;
+}
+
+.cuboid-1.cub-1 .bk .photon-shader {
+	background-color: rgb(104 35 139 / 79%);
+}
+/*  fara */
+
+.cuboid-1.cub-1 .tp .photon-shader::before {
+	content: "";
+	display: inline-block;
+	border-radius: 10px;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	width: 35px;
+	height: 15px;
+	background-color:rgb(255 255 255 / 95%);
+}
+.cuboid-1.cub-1 .tp .photon-shader::after {
+	content: "";
+	display: inline-block;
+	border-radius: 10px;
+	width: 35px;
+	height: 15px;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	background-color:rgb(255 255 255 / 95%);
+}
+
+[class*="cylinder"] .side .photon-shader {
+	border: none;
+	background-color: #383559;
+}
+
+.cuboid-1.cub-1 .bm .photon-shader::after {
+	content: "";
+	display: inline-block;
+	border-radius: 10px;
+	width: 15px;
+	height: 25px;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	background-color:rgb(255 255 255 / 95%);
+}
+
+.cuboid-1.cub-1 .bm .photon-shader::before {
+	content: "";
+	display: inline-block;
+	border-radius: 10px;
+	width: 15px;
+	height: 25px;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	background-color:rgb(255 255 255 / 95%);
+}
+/* car comes into view */
+@keyframes rotate {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(90deg);
+	}
+}
+/*  wheel rotate*/
+
+@keyframes wheel {
+	from {
+		transform: rotateY(0deg);
+	}
+	to {
+		transform: rotateY(360deg);
+	}
+}
+
+.wheel {
+	animation: wheel 5s linear infinite;
+	/* animation-fill-mode: forwards; */
+	transform-style: preserve-3d;
+	width: 63px;
+	height: 30px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.hand {
+	width: 2px;
+	height: 60px;
+	background: #520778;
+	position: absolute;
+	bottom: 0px;
+	right: 45%;
+	transform: rotateZ(-30deg);
+	transform-origin: center bottom;
+	border-radius: 30%;
+	animation: wipe 0.5s ease-in-out infinite alternate;
+}
+@keyframes wipe {
+	from {
+		transform: rotateZ(-70deg);
+	}
+	to {
+		transform: rotateZ(70deg);
+	}
+}

@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
   const duration = 3000; // Adjust the duration (in milliseconds) as desired
 
   let animationId;
-  let isMoving = false;
+  let isMoving = true;
   let currentPosition = 0;
 
   const startAnimation = () => {
@@ -54,4 +54,7 @@ window.addEventListener('load', () => {
       }
     }
   });
+
+  // Start the animation when the page loads
+  startAnimation();
 });
