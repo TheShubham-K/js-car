@@ -33,11 +33,11 @@ body {
 @keyframes carAnimation {
     0% {
       /* Define the starting position of the car */
-      transform: translateZ(0);
+      transform: translateX(0);
     }
     100% {
       /* Define the ending position of the car */
-      transform: translateZ(700px);
+      transform: translateX(700px);
     }
 }
 
@@ -55,8 +55,8 @@ body {
 	top: 70%;
 	left: 70%;
 	margin: -40em 0 0 -40em;
-	transform-origin: 40px 0px 0px;
-	animation: linear 20s linear infinite;
+	transform-origin: 400px 0px 0px;
+	animation: rotate 20s linear infinite;
 }
 .shape {
 	top: 50%;
@@ -752,10 +752,10 @@ body {
 /* car comes into view */
 @keyframes rotate {
 	0% {
-		transform: rotateZ(0deg);
+		transform: rotateY(0deg);
 	}
 	100% {
-		transform: rotateZ(90deg);
+		transform: rotateY(-360deg);
 	}
 }
 /*  wheel rotate*/
